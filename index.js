@@ -9,4 +9,7 @@ app.get('/', (req, res) => {
     res.send({ hi: 'there' });
 });
 
-app.listen(5000); // Express tells Node to list to the port 5000
+// env is environment variable
+// || 5000 is for development because in local PORT is undefined
+const PORT = process.env.PORT || 5000;
+app.listen(PORT); // Express tells Node to list to this port number
