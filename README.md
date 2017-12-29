@@ -1,0 +1,2 @@
+# customer-feedback-service
+User(application owner) can use this service to send emails to customers. User will need to deposit some credit to use this service.
