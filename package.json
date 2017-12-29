@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
   }
 }
