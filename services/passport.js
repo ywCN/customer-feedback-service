@@ -19,7 +19,11 @@ passport.serializeUser((user, done) => {
 
 // turn id into a user Model
 passport.deserializeUser((id, done) => {
-
+    // use the method in User class
+    // this is an async operation
+    User.findById(id).then((user) => {
+        done(null, user);
+    });
 });
 
 // clientID is a public token that can be shared.
