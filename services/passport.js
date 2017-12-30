@@ -6,6 +6,12 @@ const keys = require('../config/keys');
 // User is the model class
 const User = mongoose.model('users');
 
+passport.serializeUser((user, done) => {
+    // user.id is used for follow-up requests
+    // this id is not the profile.id
+    done(null, user.id);
+});
+
 // clientID is a public token that can be shared.
 // clientSecret should not be shared.
 // let passport use the Google strategy
