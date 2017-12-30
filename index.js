@@ -24,6 +24,9 @@ app.use(
     })
 );
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 // this is like run some code from other file directly
 require('./routes/authRoutes')(app); // authRoutes.js returns a function
 
