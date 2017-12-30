@@ -12,13 +12,16 @@ const app = express();
 // clientSecret should not be shared.
 // let passport use the strategy
 passport.use(
-    new GoogleStrategy({
-    clientID: keys.googleClientID,
-    clientSecret: keys.googleClientSecret,
-    callbackURL: '/auth/google/callback'
-    }, (accessToken) => {
-        console.log(accessToken);
-    })
+    new GoogleStrategy(
+        {
+            clientID: keys.googleClientID,
+            clientSecret: keys.googleClientSecret,
+            callbackURL: '/auth/google/callback'
+        },
+        accessToken => {
+            console.log(accessToken);
+        }
+    )
 );
 
 // This is a route handler. The arrow function will 
@@ -26,6 +29,15 @@ passport.use(
 // app.get('/', (req, res) => {
 //     res.send({ bye: 'friend' });
 // });
+app.get(
+    '/auth/google',
+    // 'google' is the strategy name
+    // The GoogleStrategy has an internal identifier
+    // of 'google', so no need to define it somewhere.
+    passport.authenticate('google', {
+        scope: ['profile', 'email']
+    })
+);
 
 // env is environment variable
 // || 5000 is for development because in local PORT is undefined
