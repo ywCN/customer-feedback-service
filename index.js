@@ -2,7 +2,7 @@
 // on front end side we can use ES2015 modules like import...
 const express = require('express');
 const mongoose = require('mongoose');
-const keys = require('.config/keys');
+const keys = require('./config/keys');
 // since the file does not return anything, we do not need to use a variable
 require('./services/passport');
 // connect to db
