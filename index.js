@@ -6,7 +6,7 @@ const app = express();
 // The arrow function will be called when
 // the Route with '/' is being visited.
 app.get('/', (req, res) => {
-    res.send({ hi: 'there' });
+    res.send({ bye: 'friend' });
 });
 
 // env is environment variable
