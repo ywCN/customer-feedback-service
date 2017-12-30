@@ -20,7 +20,9 @@ passport.use(
             // console.log('accessToken', accessToken);
             // console.log('refreshToken', refreshToken);
             // console.log('profile', profile);
-            new User({ googleId: profile.id });
+
+            // create an instance and save it to db
+            new User({ googleId: profile.id }).save();
         }
     )
 );
