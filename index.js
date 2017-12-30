@@ -3,10 +3,18 @@
 const express = require('express');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const keys = require('./config/keys');
+
 // app declaration
 const app = express();
+
+// clientID is a public token that can be shared.
+// clientSecret should not be shared.
 // let passport use the strategy
-passport.use(new GoogleStrategy());
+passport.use(new GoogleStrategy({
+    clientID: keys.googleClientID,
+    clientSecret: keys.googleClientSecret
+}));
 
 // This is a route handler. The arrow function will 
 // be called when the Route with '/' is being visited.
