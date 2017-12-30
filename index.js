@@ -11,10 +11,15 @@ const app = express();
 // clientID is a public token that can be shared.
 // clientSecret should not be shared.
 // let passport use the strategy
-passport.use(new GoogleStrategy({
+passport.use(
+    new GoogleStrategy({
     clientID: keys.googleClientID,
-    clientSecret: keys.googleClientSecret
-}));
+    clientSecret: keys.googleClientSecret,
+    callbackURL: '/auth/google/callback'
+    }, (accessToken) => {
+        console.log(accessToken);
+    })
+);
 
 // This is a route handler. The arrow function will 
 // be called when the Route with '/' is being visited.
