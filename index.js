@@ -35,6 +35,7 @@ app.get(
     // The GoogleStrategy has an internal identifier
     // of 'google', so no need to define it somewhere.
     passport.authenticate('google', {
+        // tells Google what infomation we want to get
         scope: ['profile', 'email']
     })
 );
