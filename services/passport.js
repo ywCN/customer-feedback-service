@@ -21,8 +21,18 @@ passport.use(
             // console.log('refreshToken', refreshToken);
             // console.log('profile', profile);
 
-            // create an instance and save it to db
-            new User({ googleId: profile.id }).save();
+            // find the first match in user collection that id === profile.id
+            // this is an async action returns Promise
+            User.findOne({ googleId: profile.id })
+                .then((existingUser) => {
+                    if (existingUser) {
+                        // already have a record with given profile.id
+
+                    } else {
+                        // create an instance and save it to db
+                        new User({ googleId: profile.id }).save();
+                    }
+                });
         }
     )
 );
