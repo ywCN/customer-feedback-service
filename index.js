@@ -3,11 +3,11 @@
 const express = require('express');
 const app = express();
 
-// The arrow function will be called when
-// the Route with '/' is being visited.
-app.get('/', (req, res) => {
-    res.send({ bye: 'friend' });
-});
+// This is a route handler. The arrow function will 
+// be called when the Route with '/' is being visited.
+// app.get('/', (req, res) => {
+//     res.send({ bye: 'friend' });
+// });
 
 // env is environment variable
 // || 5000 is for development because in local PORT is undefined
