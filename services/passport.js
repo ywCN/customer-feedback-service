@@ -22,17 +22,21 @@ passport.use(
             // console.log('profile', profile);
 
             // find the first match in user collection that id === profile.id
-            // this is an async action returns Promise
-            User.findOne({ googleId: profile.id })
-                .then((existingUser) => {
-                    if (existingUser) {
-                        // already have a record with given profile.id
+            // this is an async operation returns Promise
+            User.findOne({ googleId: profile.id }).then((existingUser) => {
+                if (existingUser) {
+                    // already have a record with given profile.id
 
-                    } else {
-                        // create an instance and save it to db
-                        new User({ googleId: profile.id }).save();
-                    }
-                });
+                    // done(errorInfo, userRecord)
+                    done(null, existingUser);
+                } else {
+                    // create an instance and save it to db
+                    // this is an async operation
+                    new User({ googleId: profile.id })
+                        .save()
+                        .then((user) => done(null, user));
+                }
+            });
         }
     )
 );
