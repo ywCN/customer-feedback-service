@@ -40,6 +40,9 @@ app.get(
     })
 );
 
+// we will have the 'code' when using this handler
+app.get('/auth/google/callback', passport.authenticate('google'));
+
 // env is environment variable
 // || 5000 is for development because in local PORT is undefined
 // || here is like if statement
