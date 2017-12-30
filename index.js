@@ -3,9 +3,9 @@
 const express = require('express');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-
+// app declaration
 const app = express();
-
+// let passport use the strategy
 passport.use(new GoogleStrategy());
 
 // This is a route handler. The arrow function will 
@@ -18,4 +18,4 @@ passport.use(new GoogleStrategy());
 // || 5000 is for development because in local PORT is undefined
 // || here is like if statement
 const PORT = process.env.PORT || 5000;
-app.listen(PORT); // Express tells Node to list to this port number
+app.listen(PORT); // Express tells Node to listen to this port number
