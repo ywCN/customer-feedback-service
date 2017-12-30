@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 // since the file does not return anything, we do not need to use a variable
 require('./services/passport');
+require('./models/User');
+
 // connect to db
 mongoose.connect(keys.mongoURI);
 
