@@ -8,7 +8,7 @@ const User = mongoose.model('users');
 
 // clientID is a public token that can be shared.
 // clientSecret should not be shared.
-// let passport use the strategy
+// let passport use the Google strategy
 passport.use(
     new GoogleStrategy(
         {
