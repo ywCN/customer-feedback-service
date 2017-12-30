@@ -11,5 +11,6 @@ app.get('/', (req, res) => {
 
 // env is environment variable
 // || 5000 is for development because in local PORT is undefined
+// || here is like if statement
 const PORT = process.env.PORT || 5000;
 app.listen(PORT); // Express tells Node to list to this port number
