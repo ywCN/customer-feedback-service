@@ -14,3 +14,7 @@ User(application owner) can use this service to send emails to customers. User w
   2. then kill the process
       - `kill -15 PID`
         - for example: `kill -15 57385`
+
+### express-session vs. cookie session
+- express-session stores things outside cookie.
+- cookie-session stores things inside cookie.
