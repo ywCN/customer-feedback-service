@@ -34,7 +34,8 @@ passport.use(
         {
             clientID: keys.googleClientID,
             clientSecret: keys.googleClientSecret,
-            // relative path with GoogleStrategy may cause https become http
+            // Relative path with GoogleStrategy may cause https become http
+            // because Heroku use proxy and GoogleStrategy does not trust it.
             callbackURL: '/auth/google/callback',
         },
         (accessToken, refreshToken, profile, done) => {
