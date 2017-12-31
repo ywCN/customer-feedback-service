@@ -2,7 +2,7 @@
 User(application owner) can use this service to send emails to customers. User will need to deposit some credit to use this service.
 
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
-### other packages: concurrently,
+### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20
 
 
 #### concurrently package
