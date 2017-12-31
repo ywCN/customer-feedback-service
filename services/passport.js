@@ -34,6 +34,7 @@ passport.use(
         {
             clientID: keys.googleClientID,
             clientSecret: keys.googleClientSecret,
+            // relative path with GoogleStrategy may cause https become http
             callbackURL: '/auth/google/callback',
         },
         (accessToken, refreshToken, profile, done) => {
