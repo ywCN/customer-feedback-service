@@ -17,7 +17,15 @@ mongoose.connect(keys.mongoURI);
 // app declaration
 const app = express();
 
+// The app.use() are wired up with middlewares inside our application.
+// These middlewares are functions which can modify requests before
+// they reach route handlers.(like middlewares in Redux pre-processing actions)
+// Both cookieSession and passport are middlewares.
 app.use(
+    // The cookieSession extracts cookie data and
+    // assigns it to the req.session property.
+    // Then Passport will look at the req.session property
+    // and pass it to de-serialize user and aother stuffs.
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
         keys: [keys.cookieKey],
