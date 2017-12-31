@@ -38,7 +38,7 @@ app.use(passport.session());
 // this is like run some code from other file directly
 require('./routes/authRoutes')(app); // authRoutes.js returns a function
 
-// env is environment variable
+// env is environment variable set up by heroku
 // || 5000 is for development because in local PORT is undefined
 // || here is like if statement
 const PORT = process.env.PORT || 5000;
