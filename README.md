@@ -9,8 +9,8 @@ User(application owner) can use this service to send emails to customers. User w
 ### [Error: listen EADDRINUSE](https://stackoverflow.com/a/30163868/8328220)
 - You should try killing the process that is listening on the port.
   1. To see the PID of the process what is using this port.
-    - `lsof -i tcp:<portNumber>`
-      - for example: `lsof -i tcp:5000`
+      - `lsof -i tcp:<portNumber>`
+        - for example: `lsof -i tcp:5000`
   2. then kill the process
-    - `kill -15 PID`
-      - for example: `kill -15 57385`
+      - `kill -15 PID`
+        - for example: `kill -15 57385`
