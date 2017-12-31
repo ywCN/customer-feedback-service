@@ -13,8 +13,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        {/* This relative link will not work since the server uses 5000 port. */}
-        <a href="/auth/google">Sing In With Google</a>
+        {/* Relative link will not work since the server uses 5000 port. */}
+        <a href="http://localhost:5000/auth/google">Sing In With Google</a>
       </div>
     );
   }
