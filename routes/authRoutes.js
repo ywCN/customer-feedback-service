@@ -17,4 +17,15 @@ module.exports = (app) => {
 
     // we will have the 'code' when using this handler
     app.get('/auth/google/callback', passport.authenticate('google'));
+
+    app.get('/api/logout', (req, res) => {
+        req.logout();
+        res.send(req.user);
+    });
+
+    // req: incoming request
+    // res: outgoing response
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user);
+    });
 };
