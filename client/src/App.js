@@ -14,8 +14,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         {/* Relative link will not work since the server uses 5000 port.
-        http://localhost:5000/auth/google is also bad because it only work for dev. */}
-        <a href="http://localhost:5000/auth/google">Sing In With Google</a>
+        http://localhost:5000/auth/google is also bad because it only work for dev. 
+        But relative link will work after editing the package.json file in client*/}
+        <a href="/auth/google">Sign In With Google</a>
       </div>
     );
   }
