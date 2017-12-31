@@ -2,8 +2,21 @@
 User(application owner) can use this service to send emails to customers. User will need to deposit some credit to use this service.
 
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
+### other packages: concurrently,
 
-## The client folder is the front end. Outside is the back end.
+
+#### concurrently package
+- with this code, the `npm run dev` can run both server and client
+```
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+```
+
+## The client folder is the front end. Outside the folder is the back end.
 
 ### Accessing MongoDB will always be async operation.
 - Returns a Promise.
