@@ -22,6 +22,8 @@ const app = express();
 // they reach route handlers.(like middlewares in Redux pre-processing actions)
 // Both cookieSession and passport are middlewares.
 app.use(
+    // The cookieSession extracts cookie data and
+    // assigns it to the req.session property
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
         keys: [keys.cookieKey],
