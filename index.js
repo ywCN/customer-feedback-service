@@ -19,7 +19,7 @@ const app = express();
 
 // The app.use() are wired up with middlewares inside our application.
 // These middlewares are functions which can modify requests before
-// they reach to route handlers.
+// they reach route handlers.(like middlewares in Redux pre-processing actions)
 // Both cookieSession and passport are middlewares.
 app.use(
     cookieSession({
