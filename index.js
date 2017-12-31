@@ -23,7 +23,9 @@ const app = express();
 // Both cookieSession and passport are middlewares.
 app.use(
     // The cookieSession extracts cookie data and
-    // assigns it to the req.session property
+    // assigns it to the req.session property.
+    // Then Passport will look at the req.session property
+    // and pass it to de-serialize user and aother stuffs.
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
         keys: [keys.cookieKey],
