@@ -18,5 +18,6 @@ User(application owner) can use this service to send emails to customers. User w
 ### express-session vs. cookie session
 - express-session stores things outside cookie.
   - so we can store as much info as we want.
+  - but it has compatibility requirement need to be set up.
 - cookie-session stores things inside cookie.
   - has a limit of 4kb.
