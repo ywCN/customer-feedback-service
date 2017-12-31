@@ -3,6 +3,8 @@ User(application owner) can use this service to send emails to customers. User w
 
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
 
+## The client folder is the front end. Outside is the back end.
+
 ### Accessing MongoDB will always be async operation.
 - Returns a Promise.
 
