@@ -5,7 +5,8 @@ export const fetchUser = () => async dispatch => {
     // path is from routes/authRouts.js
     // res is request
     const res = await axios.get('/api/current_user');
-    dispatch({ type: FETCH_USER, payload: res });
+    // we only need the data property of th request
+    dispatch({ type: FETCH_USER, payload: res.data });
 };
 
 // before refactoring

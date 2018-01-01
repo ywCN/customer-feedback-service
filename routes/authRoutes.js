@@ -1,7 +1,7 @@
 const passport = require('passport'); // this is the NPM module
 
 // make app available in this file by export all stuffs
-module.exports = (app) => {
+module.exports = app => {
     // This is a route handler. The arrow function will
     // be called when the Route with '/' is being visited.
     app.get(
@@ -11,12 +11,23 @@ module.exports = (app) => {
         // of 'google', so no need to define it somewhere.
         passport.authenticate('google', {
             // tells Google what infomation we want
-            scope: ['profile', 'email'],
+            scope: ['profile', 'email']
         })
     );
 
-    // we will have the 'code' when using this handler
-    app.get('/auth/google/callback', passport.authenticate('google'));
+    // After user come back from the OAuth flow,
+    // passport middleware takes over and after it finished its job,
+    // passport pass the request onto the next handler in this chain.
+    // The handler is the arrow function and it takes the request in.
+    // It tells the response to inform the browser that it needs to
+    // go to this route.
+    app.get(
+        '/auth/google/callback',
+        passport.authenticate('google'),
+        (req, res) => {
+            res.redirect('/surveys');
+        }
+    );
 
     app.get('/api/logout', (req, res) => {
         req.logout();
