@@ -8,12 +8,13 @@ User(application owner) can use this service to send emails to customers. User w
 
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
 ### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20
+## The client folder is the front end. Outside the folder is the back end.
 
 ## `npm run build` will take care of `dev` and `prod`
 - we only need to worry about dev, so we can just use relative path
 - when running build, all `href` will be replaced by production version automatically
 
-#### concurrently package
+### concurrently package
 - with this code, the `npm run dev` can run both server and client
 ```
   "scripts": {
@@ -23,8 +24,6 @@ User(application owner) can use this service to send emails to customers. User w
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
 ```
-
-## The client folder is the front end. Outside the folder is the back end.
 
 ### Accessing MongoDB will always be async operation.
 - Returns a Promise.
@@ -44,3 +43,15 @@ User(application owner) can use this service to send emails to customers. User w
   - but it has compatibility requirement need to be set up.
 - cookie-session stores things inside cookie.
   - has a limit of 4kb.
+
+### AJAX pattern
+- copy paste following code in a modern browser console that supports `fetch`
+```
+function fetchInfo() {
+  fetch('https://rallycoding.herokuapp.com/api/music_albums')
+    .then(res => res.json())
+    .then(json => console.log(json));
+}
+
+fetchInfo();
+```
