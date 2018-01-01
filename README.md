@@ -18,7 +18,7 @@ User(application owner) can use this service to send emails to customers. User w
 - `require` vs. `import`
 
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
-### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20, materialize-css
+### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20, materialize-css, axios, redux-thunk
 ## The client folder is the front end. Outside the folder is the back end.
 - index.js is the data layer control(Redux)
 - App.js renders layer control
@@ -28,6 +28,21 @@ User(application owner) can use this service to send emails to customers. User w
 ## `npm run build` will take care of `dev` and `prod`
 - we only need to worry about dev, so we can just use relative path
 - when running build, all `href` will be replaced by production version automatically
+
+## [Redux Thunk](https://github.com/gaearon/redux-thunk#motivation)
+- `Redux Thunk` gives user the full control of the `dispatch` function.
+- User can decide the correct time to `dispatch` the `action`.
+  - A common use case is that user wants to `dispatch` a **resolved** AJAX request.
+- The code structure is normall returning a function.
+```
+const actionCreator1 = () => {
+  return function(dispatch) {
+    axios
+      .get('/api/current_user')
+      .then(res => dispatch({ type: FETCH_USER, payload: res }));
+  };
+};
+```
 
 ## concurrently package
 - with this code, the `npm run dev` can run both server and client
