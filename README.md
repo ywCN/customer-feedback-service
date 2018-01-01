@@ -2,7 +2,7 @@
 User(application owner) can use this service to send emails to customers. User will need to deposit some credit to use this service.
 
 # To run the project
-- `clone`
+- `git clone`
 - `npm install`
 - `npm run dev`
 
@@ -12,11 +12,12 @@ User(application owner) can use this service to send emails to customers. User w
 - `require` vs. `import`
 
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
-### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20
+### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20, materialize-css
 ## The client folder is the front end. Outside the folder is the back end.
 - index.js is the data layer control(Redux)
 - App.js renders layer control
 ## For full-stack project, only work on one side at a time.
+## `Webpack` is a module loader. It concatenate files.
 
 ## `npm run build` will take care of `dev` and `prod`
 - we only need to worry about dev, so we can just use relative path
