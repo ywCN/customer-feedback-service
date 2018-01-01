@@ -5,7 +5,7 @@ class Header extends Component {
         return (
             //http://materializecss.com/navbar.html
             <nav>
-                <div className="nav-wrapper>">
+                <div className="nav-wrapper">
                     <a className="left brand-logo">Survey Email</a>
                     <ul className="right">
                         <li>
