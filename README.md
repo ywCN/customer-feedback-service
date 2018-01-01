@@ -9,6 +9,8 @@ User(application owner) can use this service to send emails to customers. User w
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
 ### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20
 ## The client folder is the front end. Outside the folder is the back end.
+- index.js is the data layer control(Redux)
+- App.js renders layer control
 ## For full-stack project, only work on one side at a time.
 
 ## `npm run build` will take care of `dev` and `prod`
