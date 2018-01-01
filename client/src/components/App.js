@@ -13,8 +13,9 @@ const App = () => {
             {/* BrowserRouter can have at most 1 child. */}
             <BrowserRouter>
                 <div>
-                    {/* "/" is the root Route */}
-                    <Route exact={true} path="/" component={Landing} />
+                    {/* "/" is the root Route 
+                    exact={true} can be shortened as exact */}
+                    <Route exact path="/" component={Landing} />
                     {/* "/surveys" contains "/", so Landing will display without exact*/}
                     <Route path="/surveys" component={Dashboard} />
                 </div>
