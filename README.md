@@ -9,7 +9,9 @@ User(application owner) can use this service to send emails to customers. User w
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
 ### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20
 
-
+## `npm run build` will take care of `dev` and `prod`
+- we only need to worry about dev, so we can just use relative path
+- like magic
 
 #### concurrently package
 - with this code, the `npm run dev` can run both server and client
