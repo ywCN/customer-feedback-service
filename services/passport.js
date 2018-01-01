@@ -55,9 +55,8 @@ passport.use(
             } else {
                 // create an instance and save it to db
                 // This is an async operation
-                await new User({ googleId: profile.id })
-                    .save()
-                    .then(user => done(null, user));
+                const user = await new User({ googleId: profile.id }).save();
+                done(null, user);
             }
         }
     )
