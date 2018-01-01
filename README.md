@@ -9,6 +9,7 @@ User(application owner) can use this service to send emails to customers. User w
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
 ### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20
 ## The client folder is the front end. Outside the folder is the back end.
+## For full-stack project, only work on one side at a time.
 
 ## `npm run build` will take care of `dev` and `prod`
 - we only need to worry about dev, so we can just use relative path
