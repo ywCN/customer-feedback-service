@@ -13,6 +13,8 @@ const App = () => {
             {/* BrowserRouter can have at most 1 child. */}
             <BrowserRouter>
                 <div>
+                    {/* Header will always display because it is not in Route. */}
+                    <Header />
                     {/* "/" is the root Route 
                     exact={true} can be shortened as exact */}
                     <Route exact path="/" component={Landing} />
