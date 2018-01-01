@@ -2,7 +2,7 @@
 User(application owner) can use this service to send emails to customers. User will need to deposit some credit to use this service.
 
 # To run the project
-- `clone`
+- `git clone`
 - `npm install`
 - `npm run dev`
 
@@ -17,6 +17,7 @@ User(application owner) can use this service to send emails to customers. User w
 - index.js is the data layer control(Redux)
 - App.js renders layer control
 ## For full-stack project, only work on one side at a time.
+## `Webpack` is a module loader. It concatenate files.
 
 ## `npm run build` will take care of `dev` and `prod`
 - we only need to worry about dev, so we can just use relative path
