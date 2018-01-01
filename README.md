@@ -6,6 +6,11 @@ User(application owner) can use this service to send emails to customers. User w
 - `npm install`
 - `npm run dev`
 
+# Do not forget exporting components!!!!
+
+# On front-end we can use Babel and Webpack which enables more features. While on back-end we can only use CommonJS module.
+- `require` vs. `import`
+
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
 ### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20
 ## The client folder is the front end. Outside the folder is the back end.
@@ -17,7 +22,7 @@ User(application owner) can use this service to send emails to customers. User w
 - we only need to worry about dev, so we can just use relative path
 - when running build, all `href` will be replaced by production version automatically
 
-### concurrently package
+## concurrently package
 - with this code, the `npm run dev` can run both server and client
 ```
   "scripts": {
@@ -28,10 +33,10 @@ User(application owner) can use this service to send emails to customers. User w
   },
 ```
 
-### Accessing MongoDB will always be async operation.
+## Accessing MongoDB will always be async operation.
 - Returns a Promise.
 
-### [Error: listen EADDRINUSE](https://stackoverflow.com/a/30163868/8328220)
+## [Error: listen EADDRINUSE](https://stackoverflow.com/a/30163868/8328220)
 - You should try killing the process that is listening on the port.
   1. To see the PID of the process what is using this port.
       - `lsof -i tcp:<portNumber>`
@@ -40,14 +45,14 @@ User(application owner) can use this service to send emails to customers. User w
       - `kill -15 PID`
         - for example: `kill -15 57385`
 
-### express-session vs. cookie session
+## express-session vs. cookie session
 - express-session stores things outside cookie.
   - so we can store as much info as we want.
   - but it has compatibility requirement need to be set up.
 - cookie-session stores things inside cookie.
   - has a limit of 4kb.
 
-### AJAX pattern
+## AJAX pattern
 - copy paste following code in a modern browser console that supports `fetch`
 - `res` means `request` object which is a `Promise`
 ```
@@ -63,3 +68,5 @@ fetchInfo();
 - .then(res => res.json()) will call the Promise.json() if the Promise is successfully resolved
   - .json() also returns a Promise
 - .then(json => console.log(json)) will call console.log() if the Promise is resolved
+
+## If a file is exporting a class component, we make first letter upper case.
