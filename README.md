@@ -6,6 +6,12 @@ User(application owner) can use this service to send emails to customers. User w
 - `npm install`
 - `npm run dev`
 
+# To open diagrams for this project
+- download zip of this [repo](https://github.com/StephenGrider/FullstackReactCode)
+- open [draw.io](https://www.draw.io/)
+- `File` -> `Open from` -> `Device`
+- navigate to the unzipped folder and open `.xml` files in `diagrams` folder
+
 # Do not forget exporting components!!!!
 
 # On front-end we can use Babel and Webpack which enables more features. While on back-end we can only use CommonJS module.
