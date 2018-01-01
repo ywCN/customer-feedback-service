@@ -29,7 +29,7 @@ User(application owner) can use this service to send emails to customers. User w
 - we only need to worry about dev, so we can just use relative path
 - when running build, all `href` will be replaced by production version automatically
 
-## `Redux Thunk`
+## [Redux Thunk](https://github.com/gaearon/redux-thunk#motivation)
 - `Redux Thunk` gives user the full control of the `dispatch` function.
 - User can decide the correct time to `dispatch` the `action`.
   - A common use case is that user wants to `dispatch` a **resolved** AJAX request.
