@@ -9,6 +9,7 @@ User(application owner) can use this service to send emails to customers. User w
 # Do not forget exporting components!!!!
 
 # On front-end we can use Babel and Webpack which enables more features. While on back-end we can only use CommonJS module.
+- `require` vs. `import`
 
 ## Tech Stack: NodeJS, React, Redux, Heroku, MongoDB, Google OAuth, Express
 ### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20
