@@ -40,7 +40,7 @@ const actionCreator1 = () => {
     axios
       .get('/api/current_user')
       .then(res => dispatch({ type: FETCH_USER, payload: res }));
-  }
+  };
 };
 ```
 
