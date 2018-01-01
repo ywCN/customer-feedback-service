@@ -21,7 +21,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((id, done) => {
     // use the method in User class
     // this is an async operation
-    User.findById(id).then((user) => {
+    User.findById(id).then(user => {
         done(null, user);
     });
 });
@@ -37,29 +37,28 @@ passport.use(
             // Relative path with GoogleStrategy may cause https become http
             // because Heroku use proxy and GoogleStrategy does not trust it.
             callbackURL: '/auth/google/callback',
-            proxy: true, // make GoogleStrategy trust proxy
+            proxy: true // make GoogleStrategy trust proxy
         },
-        (accessToken, refreshToken, profile, done) => {
+        async (accessToken, refreshToken, profile, done) => {
             // console.log('accessToken', accessToken);
             // console.log('refreshToken', refreshToken);
             // console.log('profile', profile);
 
             // find the first match in user collection that id === profile.id
             // This is an async operation returns Promise
-            User.findOne({ googleId: profile.id }).then((existingUser) => {
-                if (existingUser) {
-                    // already have a record with given profile.id
+            const existingUser = await User.findOne({ googleId: profile.id });
+            if (existingUser) {
+                // already have a record with given profile.id
 
-                    // done(errorInfo, userRecord)
-                    done(null, existingUser);
-                } else {
-                    // create an instance and save it to db
-                    // This is an async operation
-                    new User({ googleId: profile.id })
-                        .save()
-                        .then((user) => done(null, user));
-                }
-            });
+                // done(errorInfo, userRecord)
+                done(null, existingUser);
+            } else {
+                // create an instance and save it to db
+                // This is an async operation
+                await new User({ googleId: profile.id })
+                    .save()
+                    .then(user => done(null, user));
+            }
         }
     )
 );
