@@ -46,6 +46,7 @@ User(application owner) can use this service to send emails to customers. User w
 
 ### AJAX pattern
 - copy paste following code in a modern browser console that supports `fetch`
+- `res` means `request` object which is a `Promise`
 ```
 function fetchInfo() {
   fetch('https://rallycoding.herokuapp.com/api/music_albums')
@@ -55,3 +56,7 @@ function fetchInfo() {
 
 fetchInfo();
 ```
+- fetch() returns a Promise
+- .then(res => res.json()) will call the Promise.json() if the Promise is successfully resolved
+  - .json() also returns a Promise
+- .then(json => console.log(json)) will call console.log() if the Promise is resolved
