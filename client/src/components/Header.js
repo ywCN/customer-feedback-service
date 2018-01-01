@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
     render() {
+        console.log(this.props);
         return (
             //http://materializecss.com/navbar.html
             <nav>
@@ -23,4 +24,4 @@ function mapStateToProps({ auth }) {
     return { auth };
 }
 
-export default connect()(Header);
+export default connect(mapStateToProps)(Header);
