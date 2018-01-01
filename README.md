@@ -11,7 +11,7 @@ User(application owner) can use this service to send emails to customers. User w
 
 ## `npm run build` will take care of `dev` and `prod`
 - we only need to worry about dev, so we can just use relative path
-- like magic
+- when running build, all `href` will be replaced by production version automatically
 
 #### concurrently package
 - with this code, the `npm run dev` can run both server and client
