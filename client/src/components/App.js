@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
+import * as actions from '../actions';
 
 import Header from './Header';
 const Dashboard = () => <h2>Dashboard</h2>;
@@ -9,7 +11,9 @@ const Landing = () => <h2>Landing</h2>;
 class App extends Component {
     // willmount may be called multiple times,
     // so didmount is a good place to make initial AJAX requests
-    componentDidMount() {}
+    componentDidMount() {
+        this.props.fetchUser();
+    }
     render() {
         // the outside div is for CSS
         return (
@@ -32,4 +36,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(null, actions)(App);
