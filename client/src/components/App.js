@@ -17,7 +17,8 @@ const App = () => {
                     exact={true} can be shortened as exact */}
                     <Route exact path="/" component={Landing} />
                     {/* "/surveys" contains "/", so Landing will display without exact*/}
-                    <Route path="/surveys" component={Dashboard} />
+                    <Route exact path="/surveys" component={Dashboard} />
+                    <Route path="/surveys/new" component={SurveyNew} />
                 </div>
             </BrowserRouter>
         </div>
