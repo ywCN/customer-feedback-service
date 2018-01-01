@@ -9,7 +9,7 @@ const Landing = () => <h2>Landing</h2>;
 const App = () => {
     // the outside div is for CSS
     return (
-        <div>
+        <div className="container">
             {/* BrowserRouter can have at most 1 child. */}
             <BrowserRouter>
                 <div>
