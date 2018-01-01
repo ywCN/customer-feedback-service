@@ -2,8 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Header extends Component {
+    renderContent() {
+        switch (this.props.auth) {
+            case null:
+                return 'logging in';
+            case false:
+                return 'logged out';
+            default:
+                return 'logged in';
+        }
+    }
+
     render() {
-        console.log(this.props);
         return (
             //http://materializecss.com/navbar.html
             <nav>
