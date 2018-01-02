@@ -1,3 +1,4 @@
+// Only the route with '/api/stripe' needs to use this validation.
 // req: request
 // res: response
 // next: a function will be called when middleware finishes its work
