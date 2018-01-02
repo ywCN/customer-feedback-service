@@ -12,10 +12,14 @@ User(application owner) can use this service to send emails to customers. User w
 - `File` -> `Open from` -> `Device`
 - navigate to the unzipped folder and open `.xml` files in `diagrams` folder
 
-# Do not forget exporting components!!!!
+# Common Mistakes
+## forget exporting components
+## forget putting {} in some importing situation
+## forget putting mapStateToProps or mapDispatchToProps in connect()()
+## typo
 
-# On front-end we can use Babel and Webpack which enables more features. While on back-end we can only use CommonJS module.
-- `require` vs. `import`
+# On front-end we can use `Babel` and `Webpack` which enables more features. While on back-end we can only use `CommonJS` module.
+## An example is we use `require` in back-end and use `import` in front-end.
 
 ## Tech Stack: NodeJS(tool), React(tool), Redux(state management), Heroku(deployment), MongoDB(data storage), Google OAuth(authentication), Express(build server), Stripe(for accepting payment)
 ### other packages: concurrently(run both backend and frontend), cookie-session, mongoose(communication with mongoDB), nodemon, passport(middleware), passport-google-oath20, materialize-css(style), axios(make AJAX request), redux-thunk(handles async request by using function)
