@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
     renderContent() {
@@ -14,11 +15,18 @@ class Header extends Component {
                     </li>
                 );
             default:
-                return (
-                    <li>
+                return [
+                    <li key="1">
+                        <Payments />
+                    </li>,
+                    // auto display the updated credit because auth.credit state is changed
+                    <li key="3" style={{ margin: '0 10px' }}>
+                        Credits: {this.props.auth.credits}
+                    </li>,
+                    <li key="2">
                         <a href="/api/logout">Logout</a>
                     </li>
-                );
+                ];
         }
     }
 
@@ -40,6 +48,17 @@ class Header extends Component {
     }
 }
 
+// without ES6 refactoring
+// The state is the one big state of Redux.
+// The state.auth property controlled by reducers/authReducer.js
+// function mapStateToProps(state) {
+//     return { auth: state.auth };
+// }
+
+// ES6 refactoring
+// destructuring the one state object of Redux
+// the credit is auto updated because this component subscribes to the
+// auth property of Redux. If auth.credit changes, the component will re-render.
 function mapStateToProps({ auth }) {
     return { auth };
 }

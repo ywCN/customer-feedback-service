@@ -22,7 +22,7 @@ User(application owner) can use this service to send emails to customers. User w
 ## An example is we use `require` in back-end and use `import` in front-end.
 
 ## Tech Stack: Node.js(tool), React(tool), Redux(state management), Heroku(deployment), MongoDB(data storage), Google OAuth(authentication), Express.js(build server), Stripe(for accepting payment)
-### other packages: concurrently(run both backend and frontend), cookie-session, mongoose(communication with mongoDB), nodemon, passport(middleware), passport-google-oath20, materialize-css(style), axios(make AJAX request), redux-thunk(handles async request by using function)
+### other packages: concurrently(run both backend and frontend), cookie-session, mongoose(communication with mongoDB), nodemon, passport(middleware), passport-google-oath20, materialize-css(style), axios(make AJAX request), redux-thunk(handles async request by using function), stripe(payments), body-parser(middleware that helps parsing Express reques)
 ## The client folder is the front end. Outside the folder is the back end.
 - index.js is the data layer control(Redux)
 - App.js renders layer control
@@ -104,3 +104,18 @@ fetchInfo();
 - .then(json => console.log(json)) will call console.log() if the Promise is resolved
 
 ## If a file is exporting a class component, we make first letter upper case.
+
+## [mapStateToProps](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)
+- It means map some pieces of state from the one centralized state of Redux to the current component's props.
+```
+function mapStateToProps(state) {
+  return { foo: state.a, bar: state.b };
+}
+```
+- can be shortened with ES6 syntax sugar
+```
+function mapStateToProps({ a, b }) {
+  return { a, b };
+}
+```
+- `mapStateToProps(state, [ownProps]): stateProps`: If this argument is specified, the new component will subscribe to Redux store updates. This means that any time the store is updated, `mapStateToProps` will be called. The results of `mapStateToProps` must be a plain object, which will be merged into the component’s props. If you don't want to subscribe to store updates, pass `null` or `undefined` in place of `mapStateToProps`. 

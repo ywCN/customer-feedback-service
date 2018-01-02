@@ -4,18 +4,23 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
+
 const keys = require('./config/keys');
 // since the file does not return anything, we do not need to use a variable
 // we need to run User first. this is the correct order of operation
 require('./models/User');
 require('./services/passport');
 
-
 // connect to db
 mongoose.connect(keys.mongoURI);
 
 // app declaration
 const app = express();
+
+// This middleware will parse the body of a post/put/patch request or anything has a
+// request body and the assign it to the req.body property of the incoming request body.
+app.use(bodyParser.json());
 
 // The app.use() are wired up with middlewares inside our application.
 // These middlewares are functions which can modify requests before
@@ -28,7 +33,7 @@ app.use(
     // and pass it to de-serialize user and aother stuffs.
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-        keys: [keys.cookieKey],
+        keys: [keys.cookieKey]
     })
 );
 
@@ -37,6 +42,8 @@ app.use(passport.session());
 
 // this is like run some code from other file directly
 require('./routes/authRoutes')(app); // authRoutes.js returns a function
+
+require('./routes/billingRoutes')(app);
 
 // env is environment variable set up by heroku
 // || 5000 is for development because in local PORT is undefined
