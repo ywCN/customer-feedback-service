@@ -13,6 +13,10 @@ module.exports = app => {
             source: req.body.id
         });
 
-        console.log(charge);
+        req.user.credits += 5;
+        // save() is async
+        const user = await req.user.save();
+        // send back user
+        res.send(users);
     });
 };
