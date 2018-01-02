@@ -10,7 +10,6 @@ const keys = require('./config/keys');
 require('./models/User');
 require('./services/passport');
 
-
 // connect to db
 mongoose.connect(keys.mongoURI);
 
@@ -28,7 +27,7 @@ app.use(
     // and pass it to de-serialize user and aother stuffs.
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-        keys: [keys.cookieKey],
+        keys: [keys.cookieKey]
     })
 );
 
@@ -37,6 +36,8 @@ app.use(passport.session());
 
 // this is like run some code from other file directly
 require('./routes/authRoutes')(app); // authRoutes.js returns a function
+
+require('./routes/billingRoutes')(app);
 
 // env is environment variable set up by heroku
 // || 5000 is for development because in local PORT is undefined
