@@ -4,6 +4,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
+
 const keys = require('./config/keys');
 // since the file does not return anything, we do not need to use a variable
 // we need to run User first. this is the correct order of operation
@@ -15,6 +17,10 @@ mongoose.connect(keys.mongoURI);
 
 // app declaration
 const app = express();
+
+// This middleware will parse the body of a post/put/patch request or anything has a
+// request body and the assign it to the req.body property of the incoming request body.
+app.use(bodyParser.json());
 
 // The app.use() are wired up with middlewares inside our application.
 // These middlewares are functions which can modify requests before
