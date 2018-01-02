@@ -55,6 +55,7 @@ class Header extends Component {
 // }
 
 // ES6 refactoring
+// destructuring the one state object of Redux
 function mapStateToProps({ auth }) {
     return { auth };
 }

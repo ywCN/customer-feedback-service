@@ -104,3 +104,17 @@ fetchInfo();
 - .then(json => console.log(json)) will call console.log() if the Promise is resolved
 
 ## If a file is exporting a class component, we make first letter upper case.
+
+## [mapStateToProps](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)
+- It means map some pieces of state from the one centralized state of Redux to the current component's props.
+```
+function mapStateToProps(state) {
+  return { foo: state.a, bar: state.b };
+}
+```
+- can be shortened with ES6 syntax sugar
+```
+function mapStateToProps({ a, b }) {
+  return { a, b };
+}
+```
