@@ -47,6 +47,14 @@ class Header extends Component {
     }
 }
 
+// without ES6 refactoring
+// The state is the one big state of Redux.
+// The state.auth property controlled by reducers/authReducer.js
+// function mapStateToProps(state) {
+//     return { auth: state.auth };
+// }
+
+// ES6 refactoring
 function mapStateToProps({ auth }) {
     return { auth };
 }
