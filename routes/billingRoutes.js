@@ -17,6 +17,6 @@ module.exports = app => {
         // save() is async
         const user = await req.user.save();
         // send back user
-        res.send(users);
+        res.send(user);
     });
 };
