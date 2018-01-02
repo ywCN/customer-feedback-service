@@ -1,3 +1,4 @@
+// This reducer produces the 'auth' property of Redux state object.
 import { FETCH_USER } from '../actions/types';
 
 export default function(state = null, action) {
