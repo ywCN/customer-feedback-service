@@ -47,6 +47,11 @@ const actionCreator1 = () => {
 };
 ```
 
+## <a> vs <Link>
+- <a> is normally used for login or any situation that we need to navigate user to a completely different HTML document.
+- <Link> is normally for let user navigate **insider** our application.
+  - <Link> tells React Router to update some of the components.
+
 ## concurrently package
 - with this code, the `npm run dev` can run both server and client
 ```
