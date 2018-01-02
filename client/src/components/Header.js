@@ -19,6 +19,7 @@ class Header extends Component {
                     <li key="1">
                         <Payments />
                     </li>,
+                    // auto display the updated credit because auth.credit state is changed
                     <li key="3" style={{ margin: '0 10px' }}>
                         Credits: {this.props.auth.credits}
                     </li>,
@@ -56,6 +57,8 @@ class Header extends Component {
 
 // ES6 refactoring
 // destructuring the one state object of Redux
+// the credit is auto updated because this component subscribes to the
+// auth property of Redux. If auth.credit changes, the component will re-render.
 function mapStateToProps({ auth }) {
     return { auth };
 }
