@@ -1,13 +1,13 @@
 const keys = require('../config/keys');
 const stripe = require('stripe')(keys.stripeSecretKey);
+const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = app => {
     // (req, res) =>{} is the request handler
-    app.post('/api/stripe', async (req, res) => {
-        // make sure user is logged in
-        if (!req.user) {
-            return res.status(401).send({ error: 'You must log in!' });
-        }
+    // Express can accept any number of middlewares or functions.
+    // One of them must return a response.
+    // All middlewares will be executed before executing logic on the incoming request.
+    app.post('/api/stripe', requireLogin, async (req, res) => {
         // https://stripe.com/docs/api#create_charge
         // https://www.npmjs.com/package/stripe#using-promises
         const charge = await stripe.charges.create({
