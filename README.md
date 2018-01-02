@@ -17,8 +17,8 @@ User(application owner) can use this service to send emails to customers. User w
 # On front-end we can use Babel and Webpack which enables more features. While on back-end we can only use CommonJS module.
 - `require` vs. `import`
 
-## Tech Stack: NodeJS, React, Redux, Heroku(deployment), MongoDB, Google OAuth, Express(for server), Stripe(for accepting payment)
-### other packages: concurrently, cookie-session, mongoose, nodemon, passport, passport-google-oath20, materialize-css, axios, redux-thunk
+## Tech Stack: NodeJS(tool), React(tool), Redux(state management), Heroku(deployment), MongoDB(data storage), Google OAuth(authentication), Express(build server), Stripe(for accepting payment)
+### other packages: concurrently(run both backend and frontend), cookie-session, mongoose(communication with mongoDB), nodemon, passport(middleware), passport-google-oath20, materialize-css(style), axios(make AJAX request), redux-thunk(handles async request by using function)
 ## The client folder is the front end. Outside the folder is the back end.
 - index.js is the data layer control(Redux)
 - App.js renders layer control
