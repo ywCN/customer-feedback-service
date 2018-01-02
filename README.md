@@ -118,3 +118,4 @@ function mapStateToProps({ a, b }) {
   return { a, b };
 }
 ```
+- `mapStateToProps(state, [ownProps]): stateProps`: If this argument is specified, the new component will subscribe to Redux store updates. This means that any time the store is updated, `mapStateToProps` will be called. The results of `mapStateToProps` must be a plain object, which will be merged into the component’s props. If you don't want to subscribe to store updates, pass `null` or `undefined` in place of `mapStateToProps`. 
