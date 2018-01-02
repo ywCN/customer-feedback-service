@@ -6,6 +6,8 @@ class Payments extends Component {
         // debugger;
         return (
             <StripeCheckout
+                name="Email Service"
+                description="$5 for 5 email credits"
                 // 500 cents
                 amount={500}
                 token={token => console.log(token)}
