@@ -23,4 +23,5 @@ class Payments extends Component {
     }
 }
 
+// connect this component to action creators in order to update state
 export default connect(null, actions)(Payments);
