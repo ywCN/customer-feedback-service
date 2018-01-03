@@ -45,6 +45,20 @@ require('./routes/authRoutes')(app); // authRoutes.js returns a function
 
 require('./routes/billingRoutes')(app);
 
+// instruct Express
+if (process.env.NODE_ENV === 'production') {
+    // Express will serve up production assets
+    // like our main.js file, or main.css file.
+    app.use(express.static('/client/build'));
+
+    // Express will serve up the index.html file
+    // if it does not recongnize the route.
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+
 // env is environment variable set up by heroku
 // || 5000 is for development because in local PORT is undefined
 // || here is like if statement
