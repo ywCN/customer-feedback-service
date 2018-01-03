@@ -41,10 +41,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// these are route handlers
 // this is like run some code from other file directly
 require('./routes/authRoutes')(app); // authRoutes.js returns a function
-
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 // Instruct Express to correct routes to find .js files in production context
 // The order of operation matter here:
