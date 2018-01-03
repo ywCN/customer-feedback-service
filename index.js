@@ -10,6 +10,7 @@ const keys = require('./config/keys');
 // since the file does not return anything, we do not need to use a variable
 // we need to run User first. this is the correct order of operation
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 // connect to db
