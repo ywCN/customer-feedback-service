@@ -50,14 +50,14 @@ require('./routes/billingRoutes')(app);
 // When request comes into Express, we will first check to see
 // if there is some specific file that matches up with what
 // that request is looking for. If there is, Express will answer
-// the request with app.use(express.static('/client/build'));
+// the request with app.use(express.static('client/build'));
 // If there is not, Express will continue down and find next
 // route handler which is the absolute catch-all in the application.
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assets
     // like our main.js file, or main.css file.
     // This is the first route handler.
-    app.use(express.static('/client/build'));
+    app.use(express.static('client/build')); // no / why?
 
     // Express will serve up the index.html file
     // if it does not recongnize the route.
