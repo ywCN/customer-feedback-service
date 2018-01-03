@@ -45,14 +45,31 @@ require('./routes/authRoutes')(app); // authRoutes.js returns a function
 
 require('./routes/billingRoutes')(app);
 
-// instruct Express to correct routes to find .js files
+// Instruct Express to correct routes to find .js files in production context
+// The order of operation matter here:
+// When request comes into Express, we will first check to see
+// if there is some specific file that matches up with what
+// that request is looking for. If there is, Express will answer
+// the request with app.use(express.static('/client/build'));
+// If there is not, Express will continue down and find next
+// route handler which is the absolute catch-all in the application.
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assets
     // like our main.js file, or main.css file.
+    // This is the first route handler.
     app.use(express.static('/client/build'));
 
     // Express will serve up the index.html file
     // if it does not recongnize the route.
+
+    // This is the backup route handler; all previous attemps to
+    // match up the incoming request with some actual requests has failed.
+    //
+    // If we have nothing inside './routes/authRoutes' file
+    // and nothing inside './routes/billingRoutes' file
+    // and there is no file inside '/client/build'
+    // that matches up with what this request is looking for,
+    // just give back the index.html file.
     const path = require('path');
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
