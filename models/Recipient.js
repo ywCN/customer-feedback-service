@@ -1,3 +1,4 @@
+// This is a sub document collection.
 const mongoose = require('mongoose');
 const { Schema } = moogose;
 
