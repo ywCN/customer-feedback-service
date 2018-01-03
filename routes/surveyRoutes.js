@@ -21,14 +21,9 @@ module.exports = app => {
             // take all email addresses, split it into an array and then
             // return an object for every email address in there with
             // a key.property of email and the value of the actual email address.
-
-            // before ES6 refactoring
-            // recipients: recipients.split(',').map(email => {
-            //     return { email: email };
-            // })
-
-            // after ES6 refactoring
-            recipients: recipients.split(',').map(email => ({ email })),
+            recipients: recipients
+                .split(',')
+                .map(email => ({ email: email.trim() })),
             _user: req.user.id,
             dateSent: Date.now()
         });
