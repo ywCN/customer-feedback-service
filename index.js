@@ -45,7 +45,7 @@ require('./routes/authRoutes')(app); // authRoutes.js returns a function
 
 require('./routes/billingRoutes')(app);
 
-// instruct Express
+// instruct Express to correct routes to find .js files
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assets
     // like our main.js file, or main.css file.
