@@ -41,7 +41,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// these are route handlers
+// these are route files containing route handlers
 // this is like run some code from other file directly
 require('./routes/authRoutes')(app); // authRoutes.js returns a function
 require('./routes/billingRoutes')(app);
