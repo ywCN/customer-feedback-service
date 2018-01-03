@@ -9,7 +9,9 @@ const surveySchema = new Schema({
     recipients: [RecipientSchema],
     yes: { type: Number, default: 0 },
     no: { type: Number, default: 0 },
-    _user: { type: Schema.Types.ObjectId, ref: 'User' } // _ means this is a relationship
+    _user: { type: Schema.Types.ObjectId, ref: 'User' }, // _ means this is a relationship
+    dateSent: Date,
+    lastResponded: Date
 });
 
 // load this up into the mongoose library
