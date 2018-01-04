@@ -1,10 +1,16 @@
-# customer-feedback-service
+# Full-stack project.
+## customer-feedback-service
 User(application owner) can use this service to send emails to customers. User will need to deposit some credit to use this service.
 
 # To run the project
 - `git clone`
 - `npm install`
 - `npm run dev`
+## To add money
+- login with google
+- use `4242 4242 4242 4242` as credit card number
+- make sure exp date is valid
+- enter any valid email and cvc
 
 # To open diagrams for this project
 - download zip of this [repo](https://github.com/StephenGrider/FullstackReactCode)
