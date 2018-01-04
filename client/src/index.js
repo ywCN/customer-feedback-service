@@ -7,8 +7,13 @@ import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
 import reducers from './reducers';
-import axios from 'axios';
-window.axios = axios;
+
+// for testing
+// import axios from 'axios';
+// window.axios = axios;
+// after logged in, enter following in console, then check mailbox
+// const survey = { title: 'a title', subject: 'a subject', recipients: 'your_gmail@gmail.com', body: 'a body' };
+// axios.post('/api/surveys', survey);
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
