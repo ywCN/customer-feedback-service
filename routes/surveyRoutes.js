@@ -7,6 +7,10 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
+    app.get('/api/surveys/thanks', (req, res) => {
+        res.send('Thanks for voting!');
+    });
+
     // The order of middlewares matters because they will be executed one by one.
     // In this case, we need the user is logged in first before checking credits.
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
