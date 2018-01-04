@@ -9,7 +9,7 @@ const Survey = mongoose.model('surveys');
 module.exports = app => {
     // The order of middlewares matters because they will be executed one by one.
     // In this case, we need the user is logged in first before checking credits.
-    app.post('/api/surveys', requireLogin, requireCredits, (req, res) => {
+    app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
         // now the request is a valid one as it passed all middlewares
 
         const { title, subject, body, recipients } = req.body;
@@ -32,6 +32,6 @@ module.exports = app => {
 
         // send email after creating survey instance
         const mailer = new Mailer(survey, surveyTemplate(survey));
-        mailer.send();
+        await mailer.send();
     });
 };
