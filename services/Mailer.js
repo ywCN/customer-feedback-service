@@ -14,6 +14,7 @@ class Mailer extends helper.Mail {
 
         // register this with Mailer
         this.addContent(this.body); // addContent() is inherited from helper.Mail
+        this.addClickTracking();
     }
 
     formatAddresses(recipients) {
@@ -21,6 +22,15 @@ class Mailer extends helper.Mail {
         return recipients.map(({ email }) => {
             return new helper.Email(email);
         });
+    }
+
+    // this is how sendgrid works
+    addClickTracking() {
+        const trackingSettings = new helper.TrackingSettings();
+        const clickTracking = new helper.ClickTracking(true, true);
+
+        trackingSettings.setClickTracking(clickTracking);
+        this.addTrackingSettings(trackingSettings);
     }
 }
 
