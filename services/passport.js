@@ -20,14 +20,12 @@ passport.serializeUser((user, done) => {
 // turn id into a user Model
 passport.deserializeUser((id, done) => {
     // use the method in User class
-    // this is an async operation
+    // This is an async operation that returns a Promise.
     User.findById(id).then(user => {
         done(null, user);
     });
 });
 
-// clientID is a public token that can be shared.
-// clientSecret should not be shared.
 // let passport use the Google strategy
 passport.use(
     new GoogleStrategy(
@@ -40,12 +38,8 @@ passport.use(
             proxy: true // make GoogleStrategy trust proxy
         },
         async (accessToken, refreshToken, profile, done) => {
-            // console.log('accessToken', accessToken);
-            // console.log('refreshToken', refreshToken);
-            // console.log('profile', profile);
-
-            // find the first match in user collection that id === profile.id
-            // This is an async operation returns Promise
+            // findOne() finds the first match in user collection that id === profile.id
+            // This is an async operation that returns a Promise.
             const existingUser = await User.findOne({ googleId: profile.id });
             if (existingUser) {
                 // already have a record with given profile.id
@@ -53,8 +47,8 @@ passport.use(
                 // done(errorInfo, userRecord)
                 done(null, existingUser);
             } else {
-                // create an instance and save it to db
-                // This is an async operation
+                // Create an instance of user and save it to db.
+                // This is an async operation that returns a Promise.
                 const user = await new User({ googleId: profile.id }).save();
                 done(null, user);
             }
