@@ -12,14 +12,21 @@ User(product owner) can use this service to send emails to customers to collect 
   - React-Redux
 - Redux
   - Redux-Form
-  - Redux-Promise
 - Express.js
 - Babel
 - Webpack
 - lodash
 - axios
-- TDDO: `update above tech, remove unused techs`
-- TODO: check packages.json in root and client and add more.
+- `TDDO`: update above tech, remove unused techs
+- `TODO`: check packages.json in root and client and add more.
+- `TODO`: read the StudyNote about Technologies used.
+- `TODO`: compile following entries
+- [MongoDB](https://mlab.com/)
+- [Heroku](https://www.heroku.com/home) 
+- [Stripe](https://stripe.com)
+- [SendGrid](https://sendgrid.com)
+- [Google OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2)
+
 
 ## Features:
 - Login via Google OAuth.

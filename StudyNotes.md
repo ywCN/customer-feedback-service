@@ -19,7 +19,7 @@
 # On front-end we can use `Babel` and `Webpack` which enables more features. While on back-end we can only use `CommonJS` module.
 ## An example is we use `require` in back-end and use `import` in front-end.
 
-## Tech Stack: Node.js(tool), React(tool), Redux(state management), Heroku(deployment), MongoDB(data storage), Google OAuth(authentication), Express.js(build server), Stripe(for accepting payment)
+## Tech Stack: Node.js(tool), React(tool), Redux(state management), Heroku(deployment), MongoDB(data storage), Google OAuth(authentication), Express.js(build server), Stripe(for accepting payment), SendGrid(send emails)
 ### other packages: concurrently(run both backend and frontend), cookie-session, mongoose(communication with mongoDB), nodemon, passport(middleware), passport-google-oath20, materialize-css(style), axios(make AJAX request), redux-thunk(handles async request by using function), stripe(payments), body-parser(middleware that helps parsing Express reques), sendgrid()
 ## The client folder is the front end. Outside the folder is the back end.
 - index.js is the data layer control(Redux)
