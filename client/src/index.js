@@ -9,8 +9,8 @@ import App from './components/App';
 import reducers from './reducers';
 
 // for testing
-// import axios from 'axios';
-// window.axios = axios;
+import axios from 'axios';
+window.axios = axios;
 // after logged in, enter following in console, then check mailbox
 // const survey = { title: 'a title', subject: 'a subject', recipients: 'your_gmail@gmail.com', body: 'a body' };
 // axios.post('/api/surveys', survey);
