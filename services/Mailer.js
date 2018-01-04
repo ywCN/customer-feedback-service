@@ -9,8 +9,11 @@ class Mailer extends helper.Mail {
         super();
         this.from_email = new helper.Email('no-reply@emaily.com');
         this.subject = subject;
-        this.body = new helper.Content('text/html', content);
+        this.body = new helper.Content('text/html', content); // can merge into this.addContent()
         this.recipients = this.formatAddresses(recipients);
+
+        // register this with Mailer
+        this.addContent(this.body); // addContent() is inherited from helper.Mail
     }
 
     formatAddresses(recipients) {
