@@ -1,6 +1,6 @@
 // This is a sub document collection.
 const mongoose = require('mongoose');
-const { Schema } = moogose;
+const { Schema } = mongoose;
 
 const RecipientSchema = new Schema({
     email: String,
