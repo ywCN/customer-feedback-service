@@ -10,6 +10,7 @@ const keys = require('./config/keys');
 // since the file does not return anything, we do not need to use a variable
 // we need to run User first. this is the correct order of operation
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 // connect to db
@@ -40,10 +41,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// these are route files containing route handlers
 // this is like run some code from other file directly
 require('./routes/authRoutes')(app); // authRoutes.js returns a function
-
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 // Instruct Express to correct routes to find .js files in production context
 // The order of operation matter here:
