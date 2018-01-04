@@ -10,11 +10,12 @@ class Mailer extends helper.Mail {
         this.from_email = new helper.Email('no-reply@emaily.com');
         this.subject = subject;
         this.body = new helper.Content('text/html', content); // can merge into this.addContent()
-        this.recipients = this.formatAddresses(recipients);
+        this.recipients = this.formatAddresses(recipients); // return a formatted list
 
         // register this with Mailer
         this.addContent(this.body); // addContent() is inherited from helper.Mail
         this.addClickTracking();
+        this.addRecipients();
     }
 
     formatAddresses(recipients) {
@@ -31,6 +32,14 @@ class Mailer extends helper.Mail {
 
         trackingSettings.setClickTracking(clickTracking);
         this.addTrackingSettings(trackingSettings);
+    }
+
+    addRecipients() {
+        const personalize = new helper.Personalization();
+        this.recipients.forEach(recipient => {
+            personalize.addTo(recipient);
+        });
+        this.addPersonalization(personalize);
     }
 }
 
