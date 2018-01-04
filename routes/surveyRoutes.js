@@ -33,5 +33,11 @@ module.exports = app => {
         // send email after creating survey instance
         const mailer = new Mailer(survey, surveyTemplate(survey));
         await mailer.send();
+        await survey.save();
+        req.user.credits -= 1;
+        const user = await req.user.save();
+
+        // send back updated user model
+        res.send(user);
     });
 };
