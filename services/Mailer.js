@@ -12,6 +12,13 @@ class Mailer extends helper.Mail {
         this.body = new helper.Content('text/html', content);
         this.recipients = this.formatAddresses(recipients);
     }
+
+    formatAddresses(recipients) {
+        // destructuring must use () when useing arrow function
+        return recipients.map(({ email }) => {
+            return new helper.Email(email);
+        });
+    }
 }
 
 module.exports = Mailer;
