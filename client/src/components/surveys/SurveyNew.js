@@ -10,12 +10,16 @@ class SurveyNew extends Component {
     //     this.state = { showFormReview: false }; // component level state
     // }
 
-    // this line works because of babel
-    state = { showFormReview: false };
+    // this initialization works because of babel
+    state = { showFormReview: false }; // component level state
 
     renderContent() {
         if (this.state.showFormReview) {
-            return <SurveyFormReview />;
+            return (
+                <SurveyFormReview
+                    onCancel={() => this.setState({ showFormReview: false })}
+                />
+            );
         }
 
         return (
