@@ -34,7 +34,7 @@ class SurveyForm extends Component {
                 {/* handleSubmit is injected by reduxForm() at bottom */}
                 <form
                     onSubmit={this.props.handleSubmit(values =>
-                        console.log(values)
+                        this.props.onSurveySubmit()
                     )}
                 >
                     {/* Field require props to know how to render itself. The name
