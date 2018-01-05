@@ -9,6 +9,18 @@ const SurveyFormReview = ({ onCancel, formValues }) => {
                 <label>Survey Title</label>
                 <div>{formValues.title}</div>
             </div>
+            <div>
+                <label>Subject Line</label>
+                <div>{formValues.subject}</div>
+            </div>
+            <div>
+                <label>Email Body</label>
+                <div>{formValues.body}</div>
+            </div>
+            <div>
+                <label>Recipents</label>
+                <div>{formValues.emails}</div>
+            </div>
             <button className="yellow darken-3 btn-flat" onClick={onCancel}>
                 Back
             </button>
@@ -17,7 +29,7 @@ const SurveyFormReview = ({ onCancel, formValues }) => {
 };
 
 function mapStateToProps(state) {
-    console.log(state);
+    // console.log(state);
     return {
         formValues: state.form.surveyForm.values
     };
