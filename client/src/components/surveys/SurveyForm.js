@@ -82,6 +82,8 @@ function validate(values) {
 
 // reduxForm is like connect(), takes only one argument
 export default reduxForm({
-    validate: validate,
-    form: 'surveyForm'
+    // validate: validate,
+    validate, // ES6
+    form: 'surveyForm',
+    destroyOnUnmount: false // tells reduxForm not to dump stuffs
 })(SurveyForm);
