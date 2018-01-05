@@ -11,7 +11,7 @@ User(product owner) can use this service to send emails to customers to collect 
   - React-Router-DOM
   - React-Redux
 - Redux
-  - Redux-Form
+  - [Redux-Form](https://redux-form.com/7.2.0/)
 - Express.js
 - Babel
 - Webpack
