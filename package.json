@@ -28,9 +28,5 @@
     "passport-google-oauth20": "^1.0.0",
     "sendgrid": "^5.2.3",
     "stripe": "^5.4.0"
-  },
-  "devDependencies": {
-    "eslint": "^4.14.0",
-    "eslint-config-google": "^0.9.1"
   }
 }
