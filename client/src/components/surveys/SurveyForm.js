@@ -65,6 +65,8 @@ class SurveyForm extends Component {
 function validate(values) {
     const errors = {};
 
+    errors.emails = validateEmails(values.emails || ''); // || '' avoid undefined
+
     // for each field
     _.each(FIELDS, ({ name }) => {
         if (!values[name]) {
@@ -73,8 +75,6 @@ function validate(values) {
             errors[name] = 'You must provide a value';
         }
     });
-
-    errors.emails = validateEmails(values.emails || ''); // || '' avoid undefined
 
     // if it is still empty, Redux-Form will assume it is valid
     // ReduxForm does not care undefined property
