@@ -11,7 +11,8 @@ class SurveyNew extends Component {
     // }
 
     // this initialization works because of babel
-    state = { showFormReview: false }; // component level state
+    // component level state for navigation between SurveyForm and SurveyFormReview
+    state = { showFormReview: false };
 
     renderContent() {
         if (this.state.showFormReview) {
