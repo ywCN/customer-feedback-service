@@ -64,18 +64,14 @@ class SurveyForm extends Component {
 function validate(values) {
     const errors = {};
 
-    if (!values.title) {
-        errors.title = 'You must provide a title';
-    }
-    if (!values.subject) {
-        errors.subject = 'You must provide a subject';
-    }
-    if (!values.body) {
-        errors.body = 'You must provide a body';
-    }
-    if (!values.email) {
-        errors.email = 'You must provide a email';
-    }
+    // for each field
+    _.each(FIELDS, ({ name }) => {
+        if (!values[name]) {
+            // [name] means property, not 'name' property
+            // key interpolation???
+            errors[name] = 'You must provide a value';
+        }
+    });
 
     return errors; // if it is still empty, Redux-Form will assume it is valid
 }
