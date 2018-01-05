@@ -58,13 +58,12 @@ class SurveyForm extends Component {
 function validate(values) {
     const errors = {};
 
-    errors.emails = validateEmails(values.emails || ''); // || '' avoid undefined
+    errors.recipients = validateEmails(values.recipients || ''); // || '' avoid undefined
 
     // for each field
     _.each(formFields, ({ name }) => {
         if (!values[name]) {
-            // [name] means property, not 'name' property
-            // key interpolation???
+            // check the formFields.js file
             errors[name] = 'You must provide a value';
         }
     });
