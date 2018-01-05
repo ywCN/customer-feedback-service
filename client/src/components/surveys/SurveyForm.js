@@ -13,6 +13,7 @@ const FIELDS = [
 
 class SurveyForm extends Component {
     renderFields() {
+        // ({ label, name }) destructures each object in the FIELDS array
         return _.map(FIELDS, ({ label, name }) => {
             return (
                 <Field
@@ -20,6 +21,7 @@ class SurveyForm extends Component {
                     type="text"
                     label={label}
                     name={name}
+                    key={name}
                 />
             );
         });
