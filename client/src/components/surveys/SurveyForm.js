@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
     { label: 'Survey Title', name: 'title' },
@@ -73,7 +74,11 @@ function validate(values) {
         }
     });
 
-    return errors; // if it is still empty, Redux-Form will assume it is valid
+    errors.emails = validateEmails(values.emails || ''); // || '' avoid undefined
+
+    // if it is still empty, Redux-Form will assume it is valid
+    // ReduxForm does not care undefined property
+    return errors;
 }
 
 // reduxForm is like connect(), takes only one argument
