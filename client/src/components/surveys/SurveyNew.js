@@ -37,4 +37,5 @@ class SurveyNew extends Component {
 
 export default reduxForm({
     form: 'surveyForm'
+    // destroyOnUnmount is true by default
 })(SurveyNew);
