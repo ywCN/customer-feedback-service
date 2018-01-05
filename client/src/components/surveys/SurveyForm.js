@@ -61,7 +61,18 @@ class SurveyForm extends Component {
     }
 }
 
+function validate(values) {
+    const errors = {};
+
+    if (!values.title) {
+        errors.title = 'You must provide a title';
+    }
+
+    return errors; // if it is still empty, Redux-Form will assume it is valid
+}
+
 // reduxForm is like connect(), takes only one argument
 export default reduxForm({
+    validate: validate,
     form: 'surveyForm'
 })(SurveyForm);
