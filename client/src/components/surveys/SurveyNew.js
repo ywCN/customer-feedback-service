@@ -4,14 +4,21 @@ import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
 
 class SurveyNew extends Component {
-    state = { showReview: false }; // component level state
+    state = { showFormReview: false }; // component level state
 
-    render() {
+    renderContent() {
+        if (this.state.showFormReview) {
+            return <SurveyFormReview />;
+        }
+
         return (
-            <div>
-                <SurveyForm />
-            </div>
+            <SurveyForm
+                onSurveySubmit={() => this.setState({ showFormReview: true })}
+            />
         );
+    }
+    render() {
+        return <div>{this.renderContent()}</div>;
     }
 }
 
