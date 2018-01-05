@@ -2,9 +2,10 @@
 import React from 'react';
 
 // destructure, input is one property that contains a lot of event handlers
-export default ({ input }) => {
+export default ({ input, label }) => {
     return (
         <div>
+            <label>{label}</label>
             <input {...input} />
         </div>
     );
