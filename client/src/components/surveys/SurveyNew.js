@@ -4,7 +4,14 @@ import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
 
 class SurveyNew extends Component {
-    state = { showFormReview: false }; // component level state
+    // init state without babel
+    // constructor(props) {
+    //     super(props);
+    //     this.state = { showFormReview: false }; // component level state
+    // }
+
+    // this line works because of babel
+    state = { showFormReview: false };
 
     renderContent() {
         if (this.state.showFormReview) {
