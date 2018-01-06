@@ -26,6 +26,7 @@ User(product owner) can use this service to send emails to customers to collect 
 - [Stripe](https://stripe.com)
 - [SendGrid](https://sendgrid.com)
 - [Google OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2)
+- [localtunnel](https://localtunnel.github.io/www/)
 
 
 ## Features:
