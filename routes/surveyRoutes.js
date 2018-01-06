@@ -15,24 +15,26 @@ module.exports = app => {
     });
 
     app.post('/api/surveys/webhooks', (req, res) => {
-        const events = _.map(req.body, event => {
-            const pathname = new URL(event.url).pathname;
-            const p = new Path('/api/surveys/:surveyId/:choice'); // : matcher
-            const match = p.test(pathname);
-            if (match) {
-                return {
-                    email: event.email,
-                    surveyId: match.surveyId,
-                    choice: match.choice
-                };
-            }
-        });
-        const compactEvents = _.compact(events); // compact() removes undefined
-        const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId');
+        const p = new Path('/api/surveys/:surveyId/:choice'); // : matcher
+        // 1. iterate and map 2. remove undefined 3. remove dup 4. return value
+        const events = _.chain(req.body)
+            .map(event => {
+                const match = p.test(new URL(event.url).pathname);
+                if (match) {
+                    return {
+                        email: event.email,
+                        surveyId: match.surveyId,
+                        choice: match.choice
+                    };
+                }
+            })
+            .compact()
+            .uniqBy('email', 'surveyId')
+            .value();
 
-        console.log(uniqueEvents);
+        console.log(events);
 
-        res.send({}); // let sendgrid know we have reciived it
+        res.send({}); // let sendgrid know we have received it
     });
 
     // The order of middlewares matters because they will be executed one by one.
