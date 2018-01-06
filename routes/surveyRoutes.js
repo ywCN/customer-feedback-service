@@ -15,9 +15,10 @@ module.exports = app => {
     });
 
     app.post('/api/surveys/webhooks', (req, res) => {
-        const p = new Path('/api/surveys/:surveyId/:choice'); // : matcher
+        const p = new Path('/api/surveys/:surveyId/:choice'); // : wild card
         // 1. iterate and map 2. remove undefined 3. remove dup 4. return value
-        const events = _.chain(req.body)
+        // const events =
+        _.chain(req.body)
             .map(event => {
                 const match = p.test(new URL(event.url).pathname);
                 if (match) {
@@ -33,20 +34,20 @@ module.exports = app => {
             .each(({ surveyId, email, choice }) => {
                 Survey.updateOne(
                     {
-                        _id: surveyId,
+                        _id: surveyId, // _ because of mongoose
                         recipients: {
                             $elemMatch: { email: email, responded: false }
                         }
                     },
                     {
-                        $inc: { [choice]: 1 },
+                        $inc: { [choice]: 1 }, // key interpolation
                         $set: { 'recipients.$.responded': true }
                     }
                 ).exec();
             })
             .value();
 
-        console.log(events);
+        // console.log(events);
 
         res.send({}); // let sendgrid know we have received it
     });
