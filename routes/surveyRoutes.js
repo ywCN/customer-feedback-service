@@ -15,8 +15,11 @@ module.exports = app => {
     });
 
     app.post('/api/surveys/webhooks', (req, res) => {
-        console.log(req.body);
-        res.send({});
+        const events = _.map(req.body, event => {
+            const pathname = new URL(event.url).pathname;
+            const p = new Path('/api/surveys/:surveyId/:choice'); // : matcher
+            console.log(p.test(pathname));
+        });
     });
 
     // The order of middlewares matters because they will be executed one by one.
