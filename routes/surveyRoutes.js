@@ -1,3 +1,6 @@
+const _ = require('lodash');
+const Path = require('path-parser');
+const { URL } = require('url');
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin'); // a middleware
 const requireCredits = require('../middlewares/requireCredits'); // a middleware
@@ -7,8 +10,53 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
-    app.get('/api/surveys/thanks', (req, res) => {
+    app.get('/api/surveys', requireLogin, async (req, res) => {
+        const surveys = await Survey.find({ _user: req.user.id });
+
+        res.send(surveys);
+    });
+
+    app.get('/api/surveys/:surveyId/:choice', (req, res) => {
         res.send('Thanks for voting!');
+    });
+
+    app.post('/api/surveys/webhooks', (req, res) => {
+        const p = new Path('/api/surveys/:surveyId/:choice'); // : wild card
+        // 1. iterate and map 2. remove undefined 3. remove dup 4. return value
+        // const events =
+        _.chain(req.body)
+            .map(event => {
+                const match = p.test(new URL(event.url).pathname);
+                if (match) {
+                    return {
+                        email: event.email,
+                        surveyId: match.surveyId,
+                        choice: match.choice
+                    };
+                }
+            })
+            .compact()
+            .uniqBy('email', 'surveyId')
+            .each(({ surveyId, email, choice }) => {
+                Survey.updateOne(
+                    {
+                        _id: surveyId, // _ because of mongoose
+                        recipients: {
+                            $elemMatch: { email: email, responded: false }
+                        }
+                    },
+                    {
+                        $inc: { [choice]: 1 }, // key interpolation
+                        $set: { 'recipients.$.responded': true },
+                        lastResponded: new Date()
+                    }
+                ).exec();
+            })
+            .value();
+
+        // console.log(events);
+
+        res.send({}); // let sendgrid know we have received it
     });
 
     // The order of middlewares matters because they will be executed one by one.
