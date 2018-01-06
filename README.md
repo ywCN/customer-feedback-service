@@ -1,8 +1,9 @@
 # Visit [Customer Feedback Service](https://email-yw.herokuapp.com)
 
 ## Description:
-A mass email service that can help collecting customer feedback.
-User(product owner) can use this service to send emails to customers to collect feedback about the product. User will need to deposit some credit to use this service.
+This is a mass email service helps collecting customer feedback.
+User(product owner) sends surveys to collect feedback about the product. 
+User(product owner) needs to deposit credits to send emails.
 
 ## Tech Stack:
 - Node.js
