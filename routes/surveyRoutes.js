@@ -27,6 +27,12 @@ module.exports = app => {
                 };
             }
         });
+        const compactEvents = _.compact(events); // compact() removes undefined
+        const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId');
+
+        console.log(uniqueEvents);
+
+        res.send({}); // let sendgrid know we have reciived it
     });
 
     // The order of middlewares matters because they will be executed one by one.
