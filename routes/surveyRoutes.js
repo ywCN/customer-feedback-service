@@ -11,6 +11,11 @@ module.exports = app => {
         res.send('Thanks for voting!');
     });
 
+    app.post('/api/surveys/webhooks', (req, res) => {
+        console.log(req.body);
+        res.send({});
+    });
+
     // The order of middlewares matters because they will be executed one by one.
     // In this case, we need the user is logged in first before checking credits.
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
