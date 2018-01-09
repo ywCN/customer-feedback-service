@@ -5,7 +5,7 @@ This is a mass email service helps collecting customer feedback.
 User(product owner) sends surveys to collect feedback about the product. 
 User(product owner) needs to deposit credits to send emails.
 
-## Tech Stack:
+## Tech Stack(sorted from frontend to backend):
 - Node.js
 - React
   - React-DOM
@@ -13,15 +13,16 @@ User(product owner) needs to deposit credits to send emails.
   - React-Redux
 - Redux
   - [Redux-Form](https://redux-form.com/7.2.0/)
+  - Redux-Thunk
 - Express.js
+- cookie-session
+- mongoose: create new model Class for mongoDB
+- passport: Passport is Express-compatible authentication middleware for Node.js.
+- passport-google-oauth20
 - Babel
 - Webpack
 - lodash
-- axios
-- `TDDO`: update above tech, remove unused techs
-- `TODO`: check packages.json in root and client and add more.
-- `TODO`: read the StudyNote about Technologies used.
-- `TODO`: compile following entries
+- axios: http request
 - [MongoDB](https://mlab.com/)
 - [Heroku](https://www.heroku.com/home) 
 - [Stripe](https://stripe.com)
